@@ -20,7 +20,7 @@ header {
 
 h1 {
     color: rgb(255, 255, 255);
-    font-size: 5vw; /* 7% of the viewport's width */
+    font-size: 5vw; /* 5% of the viewport's width */
     text-shadow: 0.3rem 0.4rem 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -34,6 +34,10 @@ h1 {
     transition: transform 0.5s;
 }
 
+.transformed-nav .site-wrap {
+    transform: scale(1);
+}
+
 nav {
     background: #ae935f;
     width: 100%;
@@ -41,6 +45,10 @@ nav {
     position: relative;
     z-index: 1;
     transition: all 0.5s;
+}
+
+.transformed-nav nav {
+    position: fixed;
 }
 
 nav ul {
@@ -60,11 +68,14 @@ nav li {
 }
 
 li.logo {
-    max-width: 0;
-    overflow: hidden;
-    background: rgb(255, 255, 255);
-    font-size: 3rem;
+    max-width: 0; /* hidden - using max-width because width cannot be animated with transition */
     transition: all 0.5s;
+    overflow: hidden;
+    background: #f6d992;
+}
+
+.transformed-nav li.logo {
+    max-width: 50rem; /* display from hidden */
 }
 
 li.logo a {
@@ -73,7 +84,7 @@ li.logo a {
 
 nav a {
     text-decoration: none;
-    padding: 2rem;
+    padding: 4rem;
     display: inline-block;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
